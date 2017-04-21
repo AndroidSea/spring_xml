@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+           <!--  scope="singleton" 表示的是 一个单例的   scope="prototype" 这个表示的是 多例的 默认的话 是单例的 -->
+           <bean  id="hello" class="com.spring.model.HelloWorld"  scope="singleton"> </bean>
+           <!--  scope 创建出来 一个 User的对象 不是单例的模式 是多例的模式 -->
+           <bean id="user" class="com.spring.model.User" scope="prototype"></bean>
+           
+           <bean id="userDao" class="com.spring.dao.UserDao" scope="singleton"></bean>
+         
+         	<bean id="userService" class="com.spring.service.UserService" scope="singleton">
+         		<property name="userdao" ref="userDao"/>
+         	</bean>
+         	
+         	<bean id="action" class="com.spring.action.UserAction" scope="singleton">
+         		<property name="userService" ref="userService"></property>
+         	
+         	</bean>
+         	
+           
+ </beans>  
