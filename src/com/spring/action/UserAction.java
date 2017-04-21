@@ -1,11 +1,11 @@
 package com.spring.action;
 
-
 import com.spring.model.User;
 import com.spring.service.IUserService;
 
 // action 表示的是控制层
 public class UserAction {
+	
 	private int id;
 	private User userModel;
 	private IUserService userService;

@@ -1,45 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-	<!-- scope="singleton" 表示的是 一个单例的 scope="prototype" 这个表示的是 多例的 默认的话 是单例的 -->
-	<bean id="hello" class="com.spring.model.HelloWorld" scope="singleton">
-	</bean>
-	<!-- scope 创建出来 一个 User的对象 不是单例的模式 是多例的模式 -->
-	<bean id="user" class="com.spring.model.User" scope="prototype"></bean>
-
-	<bean id="userDao" class="com.spring.dao.UserDao" scope="singleton"></bean>
-	<!-- 这种是基于 get还有set方法的注入 name表示类中的 属性名, ref 表示在该文件下的资源的id -->
-	<bean id="userService" class="com.spring.service.UserService"
-		scope="singleton">
-		<property name="userdao" ref="userDao" />
-	</bean>
-
-	<!-- <bean id="action" class="com.spring.action.UserAction" scope="singleton"> 
-		<property name="userService" ref="userService"></property> </bean> -->
-	<!-- 这种是基于 构造函数的注入 在该文件下的 每个bean的id 必须是唯一的 -->
-	<!-- <bean id="action" class="com.spring.action.UserAction" scope="singleton"> 
-		<constructor-arg name="userService" ref="userService"/> <constructor-arg 
-		name="id" value="10"/> </bean> -->
-
-
-	<!-- 也可以 设置list的值 例如: -->
-	<bean id="action" class="com.spring.action.UserAction" scope="singleton">
-		<property name="strList">
-			<list>
-				<value>小明</value>
-				<value>小米</value>
-				<value>小王</value>
-				<value>小丽</value>
-			</list>
-		</property>
-
-	</bean>
-
-
- 
-		<!-- 我真是服了 怎么会提交不上去呢? -->
-		<!-- 我真是服了 怎么会提交不上去呢? -->
-
-</beans>  
+           <!--  scope="singleton" 表示的是 一个单例的   scope="prototype" 这个表示的是 多例的 默认的话 是单例的 -->
+           <bean  id="hello" class="com.spring.model.HelloWorld"  scope="singleton"> </bean>
+           <!--  scope 创建出来 一个 User的对象 不是单例的模式 是多例的模式 -->
+           <bean id="user" class="com.spring.model.User" scope="prototype"></bean>
+           
+           <bean id="userDao" class="com.spring.dao.UserDao" scope="singleton"></bean>
+         
+         	<bean id="userService" class="com.spring.service.UserService" scope="singleton">
+         		<property name="userdao" ref="userDao"/>
+         	</bean>
+         	
+         	<bean id="action" class="com.spring.action.UserAction" scope="singleton">
+         		<property name="userService" ref="userService"></property>
+         	
+         	</bean>
+         	<!-- 简单的测试 -->
+           
+ </beans>  
